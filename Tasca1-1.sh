@@ -7,20 +7,13 @@ lin= wc -l < aux.t
 
 for i in `seq 1 1 $lin`
 do 
-	echo *********************************
-	titol= `cut -d";" -f3 aux.t|head -$i|tail -1`
-	echo -e "Títol: $titol" 
-	any= `cut -d";" -f1 aux.t|head -$i| tail -1`
-	long= `cut -d";" -f2 aux.t|head -$i|tail -1`
-	pop= `cut -d";" -f8 aux.t| head -$i|tail -1`
-	premis= `cut -d";" -f9 aux.t|head -$i| tail -1`
-	tema= `cut -d";" -f4 aux.t|head -$i|tail-1`
-	echo -e "Any: $any	Longitud: $long	Popularitat: $pop	Premis: $premis	Tema: $tema"
-	actor= `cut -d";" -f5 aux.t|head -$i|tail -1`
-	echo -e "Actor: $actor"
-	actriu= `cut -d";" -f6 aux.t|head -$i|tail -1`
-	echo -e "Actriu: $actriu"
-	echo **********************************
+	echo "*********************************"
+	echo -e "Títol:" `cut -d";" -f3 aux.t|head -$i|tail -1`
+	echo -e "Any: `cut -d";" -f1 aux.t|head -$i| tail -1`	Longitud: `cut -d";" -f2 aux.t|head -$i|tail -1`	Popularitat: `cut -d";" -f8 aux.t| head -$i|tail -1`	Premis: `cut -d";" -f9 aux.t|head -$i| tail -1`	Tema: `cut -d";" -f4 aux.t|head -$i|tail -1`"
+	echo -e "Actor: `cut -d";" -f5 aux.t|head -$i|tail -1` "
+	echo -e "Actriu: `cut -d";" -f6 aux.t|head -$i|tail -1` "
+	echo "**********************************"
+	let i=i+1
 done
 
 rm aux.t
