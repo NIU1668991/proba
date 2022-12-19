@@ -8,7 +8,7 @@ read titol
 cut -f3 -d";" $fitxer|grep -i $titol|sort -k3 -t";"> aux
 lin=`wc -l < aux`
 
-grep aux $fitxer > aux2
+grep -f aux $fitxer > aux2
 
 if [ $lin -ne 0 ];
 then
@@ -16,3 +16,7 @@ then
 else 
 	echo "No hi ha cap coincidencia"
 fi
+
+
+
+#-f ARCHIVO extrae los patrones del archivo que especifiquemos. Los patrones del archivo deben ir uno por línea
