@@ -40,6 +40,7 @@ then
 	actor=$(cut -d";" -f5 aux3|head -$i|tail -1)
 	echo "Actor: $actor"
 	actriu=$(cut -d";" -f6 aux3|head -$i|tail -1)
+	echo "Actriu: $actriu"
 	let i=i+1
 	done
 echo "************************************"
