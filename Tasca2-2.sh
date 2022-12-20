@@ -18,26 +18,28 @@ do
 	let any1=any1+1	
 done 
 
-lin=`wc -l < aux1`
+linias=`wc -l < aux1`
 
-if [ $lin -ne 0 ]; 
+if [ $linias -ne 0 ]; 
 then 
 	grep -f aux1 $fitxer > aux2
-	sort -k1 -t";" aux2 > aux2
+	sort -k1 -t";" aux2 > aux3
+	lin=`wc -l < aux3`
+	i=1
 	while [ $i -le $lin ]
 	do
 	echo "*************************************"
-	titol=$(cut -d";" -f3 aux2|head -$i|tail -1)
+	titol=$(cut -d";" -f3 aux3|head -$i|tail -1)
 	echo "Títol: $titol"
-	any=$(cut -d";" -f1 aux2|head -$i|tail -1)
-	long=$(cut -d";" -f2 aux2|head -$i|tail -1)
-	pop=$(cut -d";" -f8 aux2|head -$i|tail -1)
-	premis=$(cut -d";" -f9 aux2|head -$i|tail -1)
-	tema=$(cut -d";" -f4 aux2|head -$i|tail -1)
+	any=$(cut -d";" -f1 aux3|head -$i|tail -1)
+	long=$(cut -d";" -f2 aux3|head -$i|tail -1)
+	pop=$(cut -d";" -f8 aux3|head -$i|tail -1)
+	premis=$(cut -d";" -f9 aux3|head -$i|tail -1)
+	tema=$(cut -d";" -f4 aux3|head -$i|tail -1)
 	echo "Any: $any	Longitud: $long	Popularitat: $pop	Premis: $premis	Tema: $tema"
-	actor=$(cut -d";" -f5 aux2|head -$i|tail -1)
+	actor=$(cut -d";" -f5 aux3|head -$i|tail -1)
 	echo "Actor: $actor"
-	actriu=$(cut -d";" -f6 aux2|head -$i|tail -1)
+	actriu=$(cut -d";" -f6 aux3|head -$i|tail -1)
 	echo "Actriu: $actriu"
 	let i=i+1
 	done
@@ -45,7 +47,7 @@ echo "************************************"
 else 
 	echo "Pel·lícula no trobada"
 fi	
-rm aux aux1 aux2
+rm aux aux1 aux2 aux3
 
 
 
